@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+        <style>
+        	*{margin: 0;padding: 0;}
+        	input{width:100px;height:30px;line-height: 30px;text-align: center;color:peru;background: black;}
+        	.btn{position:fixed;top:0;left:0;}
+        	canvas{background: #a500c8;}
+        </style>		
+	</head>
+	<body>
+	  <div class="btn">
+	  	<input type="button" value="上" id="Mtop"/>
+		<input type="button" value="下" id="Mbot"/>
+		<input type="button" value="左" id="Mleft"/>
+		<input type="button" value="右" id="Mright"/>
+	  </div>
+		
+		<canvas id='canvas'>
+	                   您的浏览器版本太低了,请您赶紧升级
+        </canvas>
+        <script>
+        var time=null;
+        	canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            Mtop.onclick=function(){
+            	
+            };
+            
+            od = canvas.getContext('2d');
+			var img = new Image();
+			img.src = '1.png';
+			img.onload = function(){
+				
+				var i = 0,y=200;
+				var x = 200
+				function show(){
+							i++;
+							y+=4;
+							if(i==4)i=0;
+							od.clearRect(0,0,canvas.width,canvas.height);
+							od.drawImage(
+								img,32,96,32,48,
+								x,y,32,48
+							);
+						};
+						show()
+					Mright.onclick=function(){
+						clearInterval(time)
+						function show(){
+							i++;
+							x+=4;
+							if(i==4)i=0;
+							od.clearRect(0,0,canvas.width,canvas.height);
+							od.drawImage(
+								img,i*32,96,32,48,
+								x,y,32,48
+							);
+						};
+						time=setInterval(show,100);
+					};
+					Mleft.onclick=function(){
+						clearInterval(time)
+						function show(){
+							i++;
+							x-=4;
+							if(i==4)i=0;
+							od.clearRect(0,0,canvas.width,canvas.height);
+							od.drawImage(
+								img,i*32,48,32,48,
+								x,y,32,48
+							);
+						};
+						time=setInterval(show,100);
+					};
+					Mtop.onclick=function(){
+						clearInterval(time)
+						function show(){
+							i++;
+							y-=4;
+							if(i==4)i=0;
+							od.clearRect(0,0,canvas.width,canvas.height);
+							od.drawImage(
+								img,i*32,144,32,48,
+								x,y,32,48
+							);
+						};
+						time=setInterval(show,100);
+					}
+					Mbot.onclick=function(){
+						clearInterval(time)
+						function show(){
+							i++;
+							y+=4;
+							if(i==4)i=0;
+							od.clearRect(0,0,canvas.width,canvas.height);
+							od.drawImage(
+								img,i*32,0,32,48,
+								x,y,32,48
+							);
+						};
+						time=setInterval(show,100);
+					}
+		
+		
+				
+		
+		
+			};
+        </script>
+	</body>
+</html>
